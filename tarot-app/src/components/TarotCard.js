@@ -2,10 +2,16 @@ import React from "react";
 
 class TarotCard extends React.Component {
 
-  render(){
+
+  // <img src='{this.props.cardData.imgURL}' alt="" />
+
+  render() {
     return (
       <div>
-      Hello I am a tarot card.
+        <img className="Tarot-Card-Img" src={this.props.cardData.imgURL} alt="" />
+        <br />
+        {this.props.cardData.name}
+        <br />
       </div>
     );
   }

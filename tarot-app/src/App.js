@@ -33,11 +33,10 @@ class App extends Component {
   componentDidMount() {
     this.setState({
       allCardsFlattenedArray: this.flattenData(this.state.allCardsNestedData)
-    }, () => {
-      console.log (this.state.allCardsFlattenedArray)
     })
   }
 
+//         <Route path="/allcards" component={AllCardsContainer} />
 
   render() {
     return (
@@ -58,7 +57,14 @@ class App extends Component {
 
 
         <Route exact path="/" component={HomePageContainer} />
-        <Route path="/allcards" component={AllCardsContainer} />
+
+        <Route
+          path="/allcards"
+          render={(routeProps) => (
+          <AllCardsContainer {...routeProps} cards={this.state.allCardsFlattenedArray}/>
+          )}
+        />
+
         <Route path="/about" component={AboutPageContainer} />
 
       </div>

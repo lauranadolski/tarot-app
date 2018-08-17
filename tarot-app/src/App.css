@@ -14,6 +14,11 @@
   color: white;
 }
 
+.Tarot-Card-Img {
+  height: 200px;
+  width: auto;
+}
+
 .App-navigation {
   text-align: right;
 }

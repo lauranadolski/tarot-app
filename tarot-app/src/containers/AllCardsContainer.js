@@ -1,13 +1,18 @@
 import React from "react";
-import TarotCard from '../components/TarotCard'
+import TarotCard from '../components/TarotCard';
 
 class AllCardsContainer extends React.Component {
 
+  createAllCards = () => {
+    return this.props.cards.map((card) => {
+      return (<TarotCard key={card.number} cardData={card} />)
+    })
+  }
 
-  render(){
+  render() {
     return (
       <div>
-      Hello, I am the container for the "View All Cards" page.
+      {this.createAllCards()}
       </div>
     );
   }
