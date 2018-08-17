@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import cards from './tarot_data';
 
 import AllCardsContainer from './containers/AllCardsContainer';
 import AboutPageContainer from './containers/AboutPageContainer';
 import HomePageContainer from './containers/HomePageContainer';
 
 class App extends Component {
+
+  state= {
+    allCards: cards
+  }
+
+  grabAllCards = () => {
+
+  }
+
+
   render() {
     return (
       <Router>

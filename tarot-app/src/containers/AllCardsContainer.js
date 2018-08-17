@@ -1,6 +1,8 @@
 import React from "react";
+import TarotCard from '../components/TarotCard'
 
 class AllCardsContainer extends React.Component {
+
 
   render(){
     return (
