@@ -7,14 +7,35 @@ import AllCardsContainer from './containers/AllCardsContainer';
 import AboutPageContainer from './containers/AboutPageContainer';
 import HomePageContainer from './containers/HomePageContainer';
 
+
+let helperArray = [];
+
 class App extends Component {
 
-  state= {
-    allCards: cards
+  state = {
+    allCardsNestedData: cards,
+    allCardsFlattenedArray: [],
   }
 
-  grabAllCards = () => {
+  flattenData = (targetObject) => {
+    Object.keys(targetObject).map( (nestedKey) => {
+      if (Array.isArray(targetObject[nestedKey])) {
+        targetObject[nestedKey].map( (arrayThingie) => {
+          helperArray.push(arrayThingie);
+        })
+      } else if (typeof(targetObject[nestedKey]) === "object") {
+        this.flattenData(targetObject[nestedKey]);
+      }
+    });
+  return helperArray;
+  }
 
+  componentDidMount() {
+    this.setState({
+      allCardsFlattenedArray: this.flattenData(this.state.allCardsNestedData)
+    }, () => {
+      console.log (this.state.allCardsFlattenedArray)
+    })
   }
 
 
