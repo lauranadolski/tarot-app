@@ -5,7 +5,7 @@ class AboutPageContainer extends React.Component {
   render(){
     return (
       <div>
-      Hello I am the container for the About page.
+      Hello I am a meta about page...
       </div>
     );
   }
